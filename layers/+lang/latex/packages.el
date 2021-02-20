@@ -20,6 +20,7 @@
     (company-reftex :requires company)
     counsel-gtags
     evil-matchit
+    cdlatex
     flycheck
     flyspell
     ggtags
@@ -44,6 +45,7 @@
             TeX-engine latex-build-engine
             TeX-auto-save t
             TeX-parse-self t
+            cdlatex-mode t
             TeX-syntactic-comment t
             ;; Synctex support
             TeX-source-correlate-start-server nil
@@ -233,6 +235,11 @@
             magic-latex-enable-pretty-symbols t
             magic-latex-enable-block-align nil
             magic-latex-enable-inline-image nil))))
+
+(defun latex/init-cdlatex ()
+  (use-package cdlatex
+    :defer t))
+
 
 (defun latex/init-lsp-latex ()
   (use-package lsp-latex

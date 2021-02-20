@@ -30,7 +30,9 @@
 ;;; Code:
 
 (defconst universal-packages
-  '()
+  '( )
+
+
   "The list of Lisp packages required by the universal layer.
 
 Each entry is either:
@@ -42,6 +44,7 @@ Each entry is either:
     any number of keyword-value-pairs.
 
     The following keys are accepted:
+
 
     - :excluded (t or nil): Prevent the package from being loaded
       if value is non-nil
@@ -57,7 +60,6 @@ Each entry is either:
 
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
-
 
 ;;; packages.el ends here
 (global-set-key [M-left] 'windmove-left)
@@ -76,4 +78,15 @@ position."
   (interactive)
   (setq zmacs-region-stays t)
   (point-to-register 8))
+
+(defun ska-jump-to-register()
+  "Switches between current cursorposition and position
+that was stored with ska-point-to-register."
+  (interactive)
+  (setq zmacs-region-stays t)
+  (let ((tmp (point-marker)))
+    (jump-to-register 8)
+    (set-register 8 tmp)))
+
+
 
