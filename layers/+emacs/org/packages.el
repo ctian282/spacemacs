@@ -132,6 +132,7 @@
             ;; `helm-org-headings-max-depth'.
             org-imenu-depth 8)
 
+
       (with-eval-after-load 'org-agenda
         (add-to-list 'org-modules 'org-habit))
 
@@ -459,7 +460,6 @@ Will work on both org-mode and any mode that accepts plain html."
     :init
     (progn
       (setq org-agenda-restore-windows-after-quit t)
-      (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
       (dolist (prefix `(("mC" . ,(org-clocks-prefix))
                         ("md" . "dates")
                         ("mi" . "insert")

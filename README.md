@@ -33,8 +33,8 @@
 **Personal customization**
 
 * Change the latex-preview size in org-mode
-Go to org-format-latex-options, goto ./layers/+emacs/org/packages.el, and change the value of 
-org-format-latex-options.
+
+M-x customize-variable org-format-latex-options
 
 **Quick Install:**
 
