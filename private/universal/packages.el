@@ -66,3 +66,14 @@ Each entry is either:
 (global-set-key [M-down] 'windmove-down)
 
 (add-hook 'after-init-hook 'global-company-mode)
+
+(global-set-key [(control ?\.)] 'ska-point-to-register)
+(global-set-key [(control ?\,)] 'ska-jump-to-register)
+(defun ska-point-to-register()
+  "Store cursorposition _fast_ in a register. 
+Use ska-jump-to-register to jump back to the stored 
+position."
+  (interactive)
+  (setq zmacs-region-stays t)
+  (point-to-register 8))
+
