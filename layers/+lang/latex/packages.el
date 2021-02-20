@@ -45,7 +45,6 @@
             TeX-engine latex-build-engine
             TeX-auto-save t
             TeX-parse-self t
-            cdlatex-mode t
             TeX-syntactic-comment t
             ;; Synctex support
             TeX-source-correlate-start-server nil
@@ -238,7 +237,9 @@
 
 (defun latex/init-cdlatex ()
   (use-package cdlatex
-    :defer t))
+    :defer t)
+  (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex))
+
 
 
 (defun latex/init-lsp-latex ()

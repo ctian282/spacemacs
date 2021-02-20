@@ -36,6 +36,7 @@
     org-present
     org-cliplink
     org-rich-yank
+    cdlatex
     (org-projectile :requires projectile)
     (ox-epub :toggle org-enable-epub-support)
     (ox-twbs :toggle org-enable-bootstrap-support)
@@ -458,6 +459,7 @@ Will work on both org-mode and any mode that accepts plain html."
     :init
     (progn
       (setq org-agenda-restore-windows-after-quit t)
+      (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
       (dolist (prefix `(("mC" . ,(org-clocks-prefix))
                         ("md" . "dates")
                         ("mi" . "insert")
@@ -961,6 +963,12 @@ Headline^^            Visit entry^^               Filter^^                    Da
 (defun org/pre-init-verb ()
   (spacemacs|use-package-add-hook org
     :post-config (add-to-list 'org-babel-load-languages '(verb . t))))
+
+(defun org/post-init-cdlatex ()
+  (use-package cdlatex
+    :defer t)
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex))
+
 
 (defun org/init-valign ()
   (use-package valign

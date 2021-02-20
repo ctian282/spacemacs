@@ -67,7 +67,7 @@ Each entry is either:
 (global-set-key [M-up] 'windmove-up)
 (global-set-key [M-down] 'windmove-down)
 
-(add-hook 'after-init-hook 'global-company-mode)
+;;(add-hook 'after-init-hook 'global-company-mode)
 
 (global-set-key [(control ?\.)] 'ska-point-to-register)
 (global-set-key [(control ?\,)] 'ska-jump-to-register)
